@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #0a0a0a;
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 680px;
+            width: 100%;
+        }
+
+        .back-link {
+            font-size: 13px;
+            color: #888;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 36px;
+            letter-spacing: 0.3px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: #f0ede8; }
+
+        .section-label {
+            font-size: 12px;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #f0ede8;
+            margin-bottom: 16px;
+        }
+
+        .divider {
+            width: 32px;
+            height: 2px;
+            background: #c9a96e;
+            border-radius: 2px;
+            margin-bottom: 32px;
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Animasi fade-up */
+        .card {
+            background: #151515;
+            border: 0.5px solid #2a2a2a;
+            border-radius: 12px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-thumb {
+            width: 100%;
+            background: #1a1a1a;
+            border-bottom: 0.5px solid #2a2a2a;
+            overflow: hidden;
+        }
+
+        .card-thumb img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .card-thumb:hover img { transform: scale(1.02); }
+
+        /* Placeholder untuk card tanpa gambar */
+        .card-thumb-placeholder {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #333;
+        }
+
+        .card-body { padding: 24px; }
+
+        .card-tag {
+            font-size: 11px;
+            color: #c9a96e;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .card-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #f0ede8;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.75;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .card-divider {
+            width: 100%;
+            height: 0.5px;
+            background: #2a2a2a;
+            margin-bottom: 20px;
+        }
+
+        .feat-title {
+            font-size: 11px;
+            color: #888;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .feat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .feat-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .feat-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #c9a96e;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        .feat-text {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        /* Stat boxes untuk project 2 */
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background: #1a1a1a;
+            border: 0.5px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 18px;
+            font-weight: 500;
+            color: #f0ede8;
+            margin-bottom: 2px;
+        }
+
+        .stat-lbl {
+            font-size: 11px;
+            color: #666;
+            letter-spacing: 0.5px;
+        }
+
+        .stack {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 11px;
+            color: #c9a96e;
+            border: 0.5px solid #3a3020;
+            background: #1e1a10;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Kembali ke Profil</a>
+
+        <p class="section-label">Karya Saya</p>
+        <h1>Portofolio</h1>
+        <div class="divider"></div>
+
+        <div class="cards">
+
+            <!-- Project 1: AlGrowGarden -->
+            <div class="card" id="card-1">
+                <div class="card-thumb">
+                    <img src="picture/Picture1.jpg" alt="Screenshot AlGrowGarden">
+                </div>
+                <div class="card-body">
+                    <p class="card-tag">Pemrograman Web · Kelompok 7 · 2026</p>
+                    <p class="card-name">AlGrowGarden — E-Commerce Pet Virtual</p>
+                    <p class="card-desc">Website toko online untuk jual beli pet virtual dalam game Grow A Garden. Dibangun bersama kelompok 7 menggunakan PHP & MySQL. Alur pembelian dari katalog, filter pet, kode promo, hingga order otomatis via WhatsApp.</p>
+                    <div class="card-divider"></div>
+                    <p class="feat-title">Fitur Utama</p>
+                    <div class="feat-grid">
+                        <div class="feat-item"><div class="feat-dot"></div><span class="feat-text">Login & Register dengan password hashing</span></div>
+                        <div class="feat-item"><div class="feat-dot"></div><span class="feat-text">Katalog pet dengan filter nama & tier</span></div>
+                        <div class="feat-item"><div class="feat-dot"></div><span class="feat-text">Sistem kode promo (% & nominal)</span></div>
+                        <div class="feat-item"><div class="feat-dot"></div><span class="feat-text">Order otomatis via WhatsApp</span></div>
+                        <div class="feat-item"><div class="feat-dot"></div><span class="feat-text">Dark mode dengan localStorage</span></div>
+                        <div class="feat-item"><div class="feat-dot"></div><span class="feat-text">Responsive design (mobile friendly)</span></div>
+                    </div>
+                    <div class="stack">
+                        <span class="badge">PHP</span>
+                        <span class="badge">MySQL</span>
+                        <span class="badge">HTML</span>
+                        <span class="badge">CSS</span>
+                        <span class="badge">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Steam Random Forest -->
+            <div class="card" id="card-2">
+                <div class="card-thumb card-thumb-placeholder">
+                    🤖
+                </div>
+                <div class="card-body">
+                    <p class="card-tag">Pengenalan Sains Data · Individu · 2026</p>
+                    <p class="card-name">Steam Review Classifier — Random Forest</p>
+                    <p class="card-desc">Sistem machine learning untuk mengklasifikasikan ulasan game Steam menjadi Positive, Mixed, atau Negative secara otomatis. Menggunakan data scraping 122.611 game dengan fitur numerik dan TF-IDF dari tag komunitas Steam.</p>
+                    <div class="card-divider"></div>
+                    <p class="feat-title">Statistik Project</p>
+                    <div class="stat-row">
+                        <div class="stat-box">
+                            <div class="stat-num">122.611</div>
+                            <div class="stat-lbl">Data Mentah</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-num">99%</div>
+                            <div class="stat-lbl">Akurasi Model</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-num">100</div>
+                            <div class="stat-lbl">Decision Trees</div>
+                        </div>
+                    </div>
+                    <p class="feat-title">Alur Project</p>
+                    <div class="feat-grid">
+                        <div class="feat-item"><div class="feat-dot"></div><span class="feat-text">Scraping 122k+ data game Steam</span></div>
+                        <div class="feat-item"><div class="feat-dot"></div><span class="feat-text">Filter konten NSFW (4.000+ dihapus)</span></div>
+                        <div class="feat-item"><div class="feat-dot"></div><span class="feat-text">Label engineering berbasis review ratio</span></div>
+                        <div class="feat-item"><div class="feat-dot"></div><span class="feat-text">TF-IDF untuk konversi tag ke angka</span></div>
+                        <div class="feat-item"><div class="feat-dot"></div><span class="feat-text">Training 80% / Testing 20%</span></div>
+                        <div class="feat-item"><div class="feat-dot"></div><span class="feat-text">Evaluasi accuracy, precision, F1-score</span></div>
+                    </div>
+                    <div class="stack">
+                        <span class="badge">Python</span>
+                        <span class="badge">Scikit-learn</span>
+                        <span class="badge">Random Forest</span>
+                        <span class="badge">TF-IDF</span>
+                        <span class="badge">Pandas</span>
+                        <span class="badge">Matplotlib</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('pageshow', () => {
+            ['card-1', 'card-2'].forEach((id, i) => {
+                const el = document.getElementById(id);
+                el.classList.remove('visible');
+                setTimeout(() => el.classList.add('visible'), 150 + i * 150);
+            });
+        });
+    </script>
+</body>
+</html>
