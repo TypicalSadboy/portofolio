@@ -222,6 +222,18 @@ body {
     z-index: 1;
 }
 
+.bg-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    filter: blur(8px);
+    transform: scale(1.05);
+}
+
+
 /* ── Responsive Mobile ── */
 
 @media (max-width: 600px) {
